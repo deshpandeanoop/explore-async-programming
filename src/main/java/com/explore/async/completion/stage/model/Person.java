@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,7 +27,7 @@ public class Person {
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="address_id")
 	private Address address;
-	@OneToMany(cascade=CascadeType.PERSIST)
+	@OneToMany(cascade=CascadeType.PERSIST,fetch=FetchType.EAGER)
 	@JoinColumn(name="contact_id")
 	private List<Contact> contacts;
 	public long getId() {
